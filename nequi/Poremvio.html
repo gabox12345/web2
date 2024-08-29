@@ -573,14 +573,14 @@ Le vas a enviar plata al
 
 
         let contactos = [];
-        contactos.push({ celular: '302 4146396', nombre: 'Nic**** Arr****' , usuario: 'Nicolas Alfonso Arrieta' });
-        contactos.push({ celular: '323 5022464', nombre: 'Jul*** Bar****', usuario: 'Juliana Barrera Espitia' });
-        contactos.push({ celular: '314 5225941', nombre: 'Gab**** Urz***', usuario: 'Gabriel Urzola Rivero' });
-        contactos.push({ celular: '312 2806222', nombre: 'Gus**** Ávi**', usuario: 'Gustavo Ávila Muñoz' });
-        contactos.push({ celular: '311 6870259', nombre: 'Cam*** Jar*******', usuario: 'Camilo Andres Jaramillo Bernal' });
-        contactos.push({ celular: '320 7408489', nombre: 'Mig*** Bor****', usuario: 'Miguel Angel Bohorquez' });
-        contactos.push({ celular: '313 7638144', nombre: 'Raf*** Per***', usuario: 'Rafael Perez' });
-        contactos.push({ celular: '321 5687595', nombre: 'Her*** Dia*', usuario: 'Hernan Diaz Gomez' });
+        contactos.push({ celular: '302 4146396', celular2: '302 414 6396', nombre: 'Nic**** Arr****' , usuario: 'Nicolas Alfonso Arrieta' });
+        contactos.push({ celular: '323 5022464', celular2: '323 5022 464', nombre: 'Jul*** Bar****', usuario: 'Juliana Barrera Espitia' });
+        contactos.push({ celular: '314 5225941', celular2: '314 522 5941', nombre: 'Gab**** Urz***', usuario: 'Gabriel Urzola Rivero' });
+        contactos.push({ celular: '312 2806222', celular2: '312 280 6222', nombre: 'Gus**** Ávi**', usuario: 'Gustavo Ávila Muñoz' });
+        contactos.push({ celular: '311 6870259', celular2: '311 687 0259', nombre: 'Cam*** Jar*******', usuario: 'Camilo Andres Jaramillo Bernal' });
+        contactos.push({ celular: '320 7408489', celular2: '320 740 8489', nombre: 'Mig*** Bor****', usuario: 'Miguel Angel Bohorquez' });
+        contactos.push({ celular: '313 7638144', celular2: '313 763 8144', nombre: 'Raf*** Per***', usuario: 'Rafael Perez' });
+        contactos.push({ celular: '321 5687595', celular2: '321 568 7595', nombre: 'Her*** Dia***', usuario: 'Hernan Diaz Gomez' });
     
     
     
@@ -608,7 +608,8 @@ Le vas a enviar plata al
                 if (contactoEncontrado) {
     mjPersona.innerHTML = contactoEncontrado.nombre
     usuarioIner.innerHTML = contactoEncontrado.usuario
-    numeroIner.innerHTML = inputCelular.value
+    //numeroIner.innerHTML = inputCelular.value
+     numeroIner.innerHTML = contactoEncontrado.celular2
   
 
     
