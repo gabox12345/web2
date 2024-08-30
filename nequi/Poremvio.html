@@ -36,6 +36,19 @@
             height: 100%;
             object-fit: cover; /* Asegura que la imagen cubra todo el div */
         }
+        #icono2 {
+            width: 42px;
+            height: 80px;
+            position: absolute;
+            left: 81%;
+            top: 30%;
+        }
+
+        #icono2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen cubra todo el div */
+        }
 
 
         #flecha-s2{
@@ -109,6 +122,21 @@
             background-color: white;
         }
         #ayuda img {
+            width: 70%;
+            height: 70%;
+            object-fit: cover; 
+            
+        }
+        #x{
+            width:33px;
+            height: 23px;
+            position: absolute;
+            left: 87%;
+            top: 12%;
+            border: 0px;
+            background-color: white;
+        }
+        #x img {
             width: 70%;
             height: 70%;
             object-fit: cover; 
@@ -350,6 +378,31 @@
             background-color: rgba(47, 7, 59, 0.887); /* Fondo morado y opaco */
             z-index: 1; /* Asegura que esté por encima de otros elementos */
         }
+        #overlay2 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.582); /* Fondo morado y opaco */
+            z-index: 1; /* Asegura que esté por encima de otros elementos */
+        }
+
+        #nueva-section {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-color: white;
+    transition: bottom 0.2s ease;
+    border-radius: 30px;
+    z-index: 10;
+}
+#nueva-section.visible {
+    bottom: -21px;
+}
     </style>
 </head>
 <body>
@@ -501,11 +554,23 @@ Le vas a enviar plata al
             <div>
     </div>
             <div><a style="color: #da007f; white-space: nowrap; position: absolute; top: 480%; left:45%; font-size: 16px;"  href="">¿Algún problema con este movimiento?</a></div>
+            <div id="overlay2"></div>
+</section>
+
+
+
+<section id="nueva-section" class="oculta">
+<div style="position: absolute; width: 30px; height: 3px; background-color: rgb(150, 150, 150); top:10%; left:47%;"></div>
+<button id="x"><img src="./x.png" alt=""></button>
+<div id="icono2"><img src="./Imagen de WhatsApp 2024-08-29 a las 22.23.41_ec4e3bdf_LE_auto_x2.jpg" alt=""></div>
+<button id="bt-compartir"style="position: absolute; top: 36%; left: 3%; color: #1D0019; font-size: 16px; background-color: #ffffff; border: 0px;">Comparte el comprobante</button>
+<button style="position: absolute; top: 57%; left: 3%; color: #1D0019; font-size: 16px; background-color: #ffffff; border: 0px;">Énvia comprobante por correo</button>
 </section>
 </body>
 
-
+<section style="display: none;" id="section3">aqui el comprobante</section>
 <script>
+    
     // Script para manejar la visibilidad del símbolo
     document.getElementById('input-cuanto').addEventListener('input', function() {
         const symbol = document.getElementById('currency-symbol');
@@ -563,6 +628,7 @@ Le vas a enviar plata al
 
         const newSection = document.getElementById('new-section');
         const overlay = document.getElementById('overlay');
+        const overlay2 = document.getElementById('overlay2');
         const mjCelular = document.getElementById('mj-celular');
         const mjPersona = document.getElementById('mj-persona');
         const usuarioIner = document.getElementById('usuario-iner')
@@ -682,6 +748,40 @@ if (referenciaIner) {
 } else {
     console.error('No se encontró el elemento con id "referenciaIner"');
 }
+
+
+const section = document.getElementById("nueva-section");
+document.getElementById("compartir").addEventListener("click", function() {
+    
+   
+    
+    // Alterna la visibilidad de la nueva sección
+    if (section.classList.contains("visible")) {
+        section.style.display= 'block';
+        section.classList.remove("visible");
+       
+    } else {
+        section.classList.add("visible");
+        overlay2.style.display= 'block';
+    }
+});
+
+const x= document.getElementById("x");
+
+x.addEventListener('click', function(){
+    section.style.display = 'none';
+    overlay2.style.display= 'none';
+
+});
+
+const section3= document.getElementById("section3");
+document.getElementById("bt-compartir").addEventListener("click", function() {
+     section2.style.display='none';
+     section.style.display= 'none';
+     overlay2.style.display= 'none';
+     section3.style.display ='block';
+
+        });
 
 </script>
 </html>
