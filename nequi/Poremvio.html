@@ -95,11 +95,13 @@
         }
 
         #flecha2 {
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            left: 86%;
-            top: 2%;
+            width: 33px;
+    height: 22px;
+    position: absolute;
+    left: 86%;
+    top: 2%;
+    border: 0px;
+    background-color: white;
         }
 
         #flecha2 img {
@@ -171,14 +173,14 @@
             
         }
 
-        #usuario {
+        #usuario-icon {
             width: 23px;
             height: 23px;
             position: absolute;
             left: 85%;
             top: 19%;
         }
-        #usuario img {
+        #usuario-icon img {
             width: 100%;
             height: 100%;
             object-fit: cover; /* Asegura que la imagen cubra todo el div */
@@ -451,9 +453,9 @@
     <div id="flecha">
         <img src="./flecha.png" alt="Flecha">
     </div>
-    <div id="flecha2">
+    <button id="flecha2">
         <img src="./flecha-izquierda.png" alt="Flecha">
-    </div>
+    </button>
     <p style="color:#1D0019; font-size: 29px; font-weight: bold; position: absolute; top:6%; left:4%; font-weight: 500;">Envía plata</p>
 
     <form action="">
@@ -473,7 +475,7 @@
         <label  style="font-size: 12px; color: rgb(179, 179, 179); position: absolute; top:25%; left: 6%; ">Revisa bien el número para enviarle a la persona correcta</label>
      
     </form>
-    <div id="usuario">
+    <div id="usuario-icon">
         <img src="./usuario.png" alt="Flecha">
     </div>
     <p style="color: #cf3790; font-size: 19px;  position: absolute; top:53%; left:4%">Escoge de donde saldrá la plata</p>
@@ -653,6 +655,39 @@ Le vas a enviar plata al
             <div style="width: 292px; height: 20px;position: absolute;left: 17%;top: 95%; color: #5c5c5c; font-size: 14px;  ">app Nequi y reporta un problema.</div>
 
 
+</section>
+
+<section style="display: none;" id="section4">
+    <form id="contactForm">
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="celular" style="display: block; margin-bottom: 5px; font-weight: bold;">Celular:</label>
+            <input type="text" id="celular" name="celular" placeholder="Ingrese el celular" required 
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="celular2" style="display: block; margin-bottom: 5px; font-weight: bold;">Celular 2:</label>
+            <input type="text" id="celular2" name="celular2" placeholder="Ingrese el celular alternativo" 
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="nombre" style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ing**** el nom***" required 
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="usuario" style="display: block; margin-bottom: 5px; font-weight: bold;">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingrese el usuario" required 
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <button type="button" id="registerButton" onclick="registerContact()" 
+                style="padding: 10px 20px; background-color: #d31885; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+            Registrar
+        </button>
+        <button type="button" id="backButton" onclick="goToSection1()" 
+                style="padding: 10px 20px; background-color: #d31885; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+            Regresar
+        </button>
+    </form>
 </section>
 
 </body>
@@ -911,6 +946,32 @@ retroseder2.addEventListener('click', function(){
     section2.style.display = 'block';
 })
 
+ const flecha2= document.getElementById("flecha2");
+const section4 = document.getElementById("section4");
+ flecha2.addEventListener('click', function(){
+    section1.style.display= 'none';
+    section4.style.display = 'block';
+ });
 
+ function goToSection1() {
+    section1.style.display= 'block';
+    section4.style.display = 'none';
+        }
+
+              // Función para registrar un nuevo contacto
+              function registerContact() {
+            const celular = document.getElementById('celular').value;
+            const celular2 = document.getElementById('celular2').value;
+            const nombre = document.getElementById('nombre').value;
+            const usuario = document.getElementById('usuario').value;
+
+            if (celular && nombre && usuario) { // Verifica si los campos requeridos están llenos
+                contactos.push({ celular, celular2, nombre, usuario });
+                //alert('Contacto registrado exitosamente!');
+                console.log(contactos); // Muestra el array actualizado en la consola para verificar
+            } else {
+                alert('Por favor, complete todos los campos obligatorios.');
+            }
+        }
 </script>
 </html>
