@@ -1618,6 +1618,14 @@
             audio.play().catch(function(error) {
                 console.log("Error al intentar reproducir la música: ", error);
             });
+                      if (navigator.vibrate) {
+                // Hacer vibrar el teléfono en un patrón: vibrar 500ms, pausa 500ms, repetido
+                navigator.vibrate([500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]);
+
+                // La vibración se detendrá automáticamente después del tiempo total de 30 segundos.
+            } else {
+                console.log("La API de Vibración no está soportada en este dispositivo.");
+            }
         }
     </script>
 </html>
