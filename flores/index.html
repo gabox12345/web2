@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flor</title>
     <style>
+
+              /* Estilos para el botón */
+        .play-button {
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 24px;
+            color: white;
+            border: 5px solid green;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Cambia el color del fondo y del texto al pasar el ratón */
+        .play-button:hover {
+            background-color: green;
+            color: white;
+        }
       *,
       *::after,
       *::before {
@@ -1576,15 +1596,26 @@
         </div>
       </div>
     </div>
-       <audio id="backgroundMusic" style="position: absolute;" loop controls>
-      <source src="./Natanael Cano, Oscar Maydon - Madonna.mp3"  type="audio/mp3">
-      Tu navegador no soporta el elemento de audio.
-  </audio>
+      <!-- Botón grande para reproducir música -->
+    <button class="play-button" onclick="playMusic()">Play</button>
+
+    <!-- Elemento de audio (oculto) -->
+    <audio id="backgroundMusic" loop style="position: absolute;">
+        <source src="./Natanael Cano, Oscar Maydon - Madonna.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
  
   </body>
 
-    <script>
-    // Ajustar el volumen a 50%
-    document.getElementById('backgroundMusic').volume = 0.9;
-</script>
+       <script>
+        // Función para reproducir la música
+        function playMusic() {
+            var audio = document.getElementById('backgroundMusic');
+            audio.volume = 0.5;  // Ajusta el volumen al 50%
+            audio.play().catch(function(error) {
+                console.log("Error al intentar reproducir la música: ", error);
+            });
+        }
+    </script>
 </html>
