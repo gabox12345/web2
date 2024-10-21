@@ -678,7 +678,12 @@ font-size: 12px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+.carousel-containerx {
+    width: 99%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 
 
@@ -746,6 +751,11 @@ font-size: 12px;
     transition: transform 0.5s ease;
     width: 100%;
 }
+.carouselx{
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
 
 
 
@@ -787,6 +797,10 @@ font-size: 12px;
 .carousel-item12 {
     min-width: 50%;
 }
+.carousel-itemx {
+    min-width: 50%;
+}
+
 
 
 
@@ -848,6 +862,11 @@ font-size: 12px;
     border-radius: 10px;
 }
 .carousel-item12 img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+ .carousel-itemx img {
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -1024,7 +1043,17 @@ Saltar
 
 
 
+   <div class="carousel-containerx">
+            <div class="carouselx">
+                <div style=" " class="carousel-itemx"><img src="./assets/x1.jpg" alt="Imagen 1"></div>
+                <div class="carousel-itemx"><img src="./assets/x4.jpg" alt="Imagen 2"></div>
+                <div class="carousel-itemx"><img src="./assets/x3.jpg" alt="Imagen 3"></div>
+                <div class="carousel-itemx"><img src="./assets/x2.jpg" alt="Imagen 3"></div>
+                <div class="carousel-itemx"><img src="./assets/x5.jpg" alt="Imagen 3"></div>
+                <div class="carousel-itemx"><img src="./assets/x6.jpg" alt="Imagen 3"></div>
 
+            </div>
+        </div>
         <div class="carousel-container">
             <div class="carousel">
                 <div style=" min-width: 100%; " class="carousel-item"><img src="./assets/a1.jpg" alt="Imagen 1"></div>
@@ -1205,7 +1234,7 @@ Saltar
       </audio>
       
     <script>
-        const totalCards = 14; // Total de cartas
+        const totalCards = 16; // Total de cartas
         const availableCards = [
             './assets/image1.jpg', // Imagen de perro
             './assets/imagen2.jpg',  // Imagen de gato
@@ -1214,6 +1243,7 @@ Saltar
             './assets/imagen5.jpg', // Imagen de conejo
             './assets/imagen6.jpg', // Otra imagen
             './assets/coco.png', // Imagen de tortuga
+             './assets/x1.jpg', 
         ];
 
         let cards = [];
@@ -2033,6 +2063,22 @@ function moveCarousel12() {
 
 // Mover el carrusel automáticamente cada 3 segundos
 setInterval(moveCarousel12, 1600);
+
+        const carouselx = document.querySelector('.carouselx');
+let indexx = 0;
+
+function moveCarouselx() {
+    indexx++;
+    const itemsx = document.querySelectorAll('.carousel-itemx');
+    if (indexx >= itemsx.length-3 ) {
+        indexx = 0;
+    }
+    carouselx.style.transform = `translateX(-${indexx * 100}%)`;
+}
+
+// Mover el carrusel automáticamente cada 3 segundos
+setInterval(moveCarouselx, 1000);
+
     </script>
 </body>
 </html>
